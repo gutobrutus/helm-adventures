@@ -39,6 +39,23 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  targetPort: 80
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  failureThreshold: 3
+  periodSeconds: 10
+  initialDelaySeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  failureThreshold: 3
+  periodSeconds: 10
+  initialDelaySeconds: 10
 
 ingress:
   enabled: true
