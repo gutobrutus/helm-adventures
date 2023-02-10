@@ -57,6 +57,13 @@ readinessProbe:
   periodSeconds: 10
   initialDelaySeconds: 10
 
+configMap:
+  enabled: false
+  name: "app-guto-env-vars"
+  data:
+    env-var1: "value1"
+    env-var2: "value2"
+
 ingress:
   enabled: true
   className: ""
